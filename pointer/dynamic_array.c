@@ -49,6 +49,28 @@ void add(Numbers *nums, const int num) {
     } while (0);
 }
 
+int removeNumber(Numbers *nums, const int index) {
+    if (index < 0 || index >= nums->size) {
+        printf("Index out of bounds\n");
+        return -1;
+    }
+
+    for (int i = index; i < nums->size - 1; i++) {
+        nums->itens[i] = nums->itens[i + 1];
+    }
+
+    nums->size--;
+
+    return 0;
+}
+
+void print(Numbers *nums) {
+    for (int i = 0; i < nums->size; i++) {
+        printf("%d ", nums->itens[i]);
+    }
+    printf("\n");
+}
+
 int main() {
     Numbers *nums;
 
@@ -58,10 +80,17 @@ int main() {
     }
 
     add(nums, 1);
+    add(nums, 2);
+    add(nums, 3);
+    add(nums, 4);
+    add(nums, 5);
 
-    for (int i = 0; i < nums->size; i++) {
-        printf("%d\n", nums->itens[i]);
-    }
+    print(nums);
+
+    removeNumber(nums, 0);
+    removeNumber(nums, 5); // Index out of bounds
+
+    print(nums);
 
     free(nums);
     free(nums->itens);
