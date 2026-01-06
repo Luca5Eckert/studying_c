@@ -1,11 +1,6 @@
-#include <stdio.h>
+#include "numbers.h"
 #include <stdlib.h>
-
-typedef struct {
-    int *itens;
-    size_t size;
-    size_t capacity;
-} Numbers;
+#include <stdio.h>
 
 int init(Numbers **nums_copy, size_t capacity) {
     Numbers *nums = malloc(sizeof(Numbers));
