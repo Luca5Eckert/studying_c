@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -29,24 +28,21 @@ int init(Numbers **nums_copy, size_t capacity) {
 }
 
 void add(Numbers *nums, const int num) {
-    do {
-        if (nums->size >= nums->capacity) {
-            nums->capacity *= 2;
+    if (nums->size >= nums->capacity) {
+        nums->capacity *= 2;
 
-            int *temp = realloc(nums->itens, nums->capacity * sizeof(int));
+        int *temp = realloc(nums->itens, nums->capacity * sizeof(int));
 
-            if (!temp) {
-                printf("Memory allocation failed\n");
-                return;
-            }
-
-            nums->itens = temp;
+        if (!temp) {
+            printf("Memory allocation failed\n");
+            return;
         }
 
-        nums->itens[nums->size] = num;
-        nums->size++;
+        nums->itens = temp;
+    }
 
-    } while (0);
+    nums->itens[nums->size] = num;
+    nums->size++;
 }
 
 int removeNumber(Numbers *nums, const int index) {
@@ -99,6 +95,3 @@ int main() {
 
     return 0;
 }
-
-
-
