@@ -6,7 +6,7 @@
 
 #include <stdlib.h>
 
-int init(LinkedList **linked_list_copy) {
+int init(LinkedList  **linked_list_copy) {
     LinkedList *linked_list = malloc(sizeof(LinkedList));
     if (!linked_list) {
         return -1;
@@ -28,24 +28,22 @@ int add(LinkedList *linked_list, int num) {
     new_node->data = num;
     new_node->next = NULL;
 
-    Node *dummy = linked_list->head;
+    Node *dummy = linked_list->tail;
     if (!dummy) {
         linked_list->head = new_node;
+        linked_list->tail = new_node;
         linked_list->size++;
         return 0;
     }
 
-    while (dummy->next) {
-        dummy = dummy->next;
-    }
-
     dummy->next = new_node;
+    linked_list->tail = new_node;
     linked_list->size++;
 
     return 0;
 }
 
-void remove(LinkedList *nums, Node *node);
+void pop(LinkedList *nums, Node *node);
 void print(LinkedList *nums);
 void clear(LinkedList *nums);
 

@@ -13,12 +13,13 @@ typedef struct Node {
 
 typedef struct LinkedList {
     Node* head;
+    Node* tail;
     size_t size;
 } LinkedList;
 
 int init(LinkedList **nums);
 int add(LinkedList *nums, int num);
-void remove(LinkedList *nums, Node *node);
+void pop(LinkedList *nums, Node *node);
 void print(LinkedList *nums);
 void clear(LinkedList *nums);
 

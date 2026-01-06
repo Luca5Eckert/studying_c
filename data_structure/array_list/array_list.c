@@ -40,7 +40,7 @@ void add(ArrayList *array, const int num) {
     array->size++;
 }
 
-int removeNumber(ArrayList *array, const int index) {
+int pop(ArrayList *array, const int index) {
     if (index < 0 || index >= array->size) {
         printf("Index out of bounds\n");
         return -1;

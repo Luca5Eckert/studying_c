@@ -15,6 +15,7 @@ typedef struct {
 
 int init(ArrayList **nums_copy, size_t capacity);
 void add(ArrayList *nums, int num);
+int pop(ArrayList *array, const int index);
 void print(ArrayList *nums);
 
 #endif
