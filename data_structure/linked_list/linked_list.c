@@ -4,6 +4,7 @@
 
 #include "linked_list.h"
 
+#include <stdio.h>
 #include <stdlib.h>
 
 int init(LinkedList  **linked_list_copy) {
@@ -43,11 +44,58 @@ int add(LinkedList *linked_list, int num) {
     return 0;
 }
 
-void pop(LinkedList *nums, Node *node);
-void print(LinkedList *nums);
+int pop(LinkedList *linked_list, int position) {
+    if (position < 0 || position >= linked_list->size || linked_list->head == NULL) {
+        return -1;
+    }
+
+    Node *node_to_remove = NULL;
+
+    if (position == 0) {
+        node_to_remove = linked_list->head;
+        linked_list->head = node_to_remove->next;
+
+        if (linked_list->size == 1) {
+            linked_list->tail = linked_list->head;
+        }
+    } else {
+        Node *prev = linked_list->head;
+
+        for (int i = 0; i < position - 1; i++) {
+            prev = prev->next;
+        }
+
+        node_to_remove = prev->next;
+        prev->next = node_to_remove->next;
+
+        if (node_to_remove == linked_list->tail) {
+            linked_list->tail = prev;
+        }
+    }
+
+    free(node_to_remove);
+    linked_list->size--;
+
+    return 0;
+}
+
+void print(const LinkedList *linked_list) {
+    if (linked_list->size == 0) {
+        return;
+    }
+
+    Node *dummy = linked_list->head;
+    while (dummy) {
+        printf("%d ", dummy->data);
+        dummy = dummy->next;
+    }
+}
+
 void clear(LinkedList *nums);
 
 int main() {
     LinkedList *linked_list = NULL;
     init(&linked_list);
+    add(linked_list, 1);
+    print(linked_list);
 }

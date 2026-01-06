@@ -11,6 +11,6 @@ add_executable(
 )
 
 add_executable(
+        linked_list data_structure/linked_list/linked_list.c
         data_structure/linked_list/linked_list.h
-        data_structure/linked_list/linked_list.c
 )

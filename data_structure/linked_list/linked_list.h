@@ -19,9 +19,9 @@ typedef struct LinkedList {
 
 int init(LinkedList **nums);
 int add(LinkedList *nums, int num);
-void pop(LinkedList *nums, Node *node);
-void print(LinkedList *nums);
+int pop(LinkedList *linked_list, int position);
+void print(const LinkedList *nums);
 void clear(LinkedList *nums);
 
 
-#endif //STUDYING_C_LINKED_LIST_H
+#endif
