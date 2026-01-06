@@ -92,8 +92,10 @@ int main() {
 
     print(nums);
 
-    free(nums);
-    free(nums->itens);
+    if (nums) {
+        free(nums->itens);
+        free(nums);
+    }
 
     return 0;
 }
