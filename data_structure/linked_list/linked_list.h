@@ -7,8 +7,8 @@
 #include <stddef.h>
 
 typedef struct Node {
-    struct node* next;
-    void* data;
+    struct Node* next;
+    int data;
 } Node;
 
 typedef struct LinkedList {
@@ -16,8 +16,8 @@ typedef struct LinkedList {
     size_t size;
 } LinkedList;
 
-int init(LinkedList *nums, size_t capacity);
-void add(LinkedList *nums, void* data);
+int init(LinkedList **nums);
+int add(LinkedList *nums, int num);
 void remove(LinkedList *nums, Node *node);
 void print(LinkedList *nums);
 void clear(LinkedList *nums);
