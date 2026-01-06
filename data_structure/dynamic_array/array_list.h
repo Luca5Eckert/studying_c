@@ -11,10 +11,10 @@ typedef struct {
     int *itens;
     size_t size;
     size_t capacity;
-} Numbers;
+} ArrayList;
 
-int init(Numbers **nums_copy, size_t capacity);
-void add(Numbers *nums, int num);
-void print(Numbers *nums);
+int init(ArrayList **nums_copy, size_t capacity);
+void add(ArrayList *nums, int num);
+void print(ArrayList *nums);
 
 #endif
